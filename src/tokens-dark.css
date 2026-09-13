@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Threespeak Dark — design tokens
+   Same token set as tokens-light.css. Kept deliberately low-contrast on the
+   grounds (no pure black) so hairline borders still read.
+   ========================================================================== */
+:root, ::after, ::before {
+    /* ---- Theme-own tokens ---------------------------------------------- */
+    --ts3-ground: #1f2227;
+    --ts3-chrome: #181a1e;
+    --ts3-chrome-raised: #262a30;
+    --ts3-chrome-sunken: #14161a;
+    --ts3-border: #343942;
+    --ts3-divider: #2c313a;
+    --ts3-border-strong: #454c57;
+    --ts3-text: #e3e6ea;
+    --ts3-text-muted: #98a1ad;
+    --ts3-text-faint: #6b7480;
+    --ts3-accent: #4a94dc;
+    --ts3-accent-strong: #6ba9e6;
+    --ts3-accent-soft: #24405e;
+    --ts3-hover: #272c34;
+    --ts3-selection: #2a3f57;
+    --ts3-on-accent: #ffffff;
+    --ts3-online: #3fbf6a;
+    --ts3-away: #e6a04a;
+    --ts3-error: #e05a5a;
+    --ts3-error-soft: #f08a8a;
+    --ts3-shadow: rgba(0, 0, 0, 0.55);
+    --ts3-scrollbar: #3d434d;
+    --ts3-client-silent-1: #6b7a90;
+    --ts3-client-silent-2: #4b5768;
+    --ts3-client-talking-1: #5fb3f2;
+    --ts3-client-talking-2: #3a8ad8;
+    --ts3-chat-remote: #262a30;
+    --ts3-chat-self: #24405e;
+    --ts3-mention: #8a6d1f;
+    --ts3-favorite: #e8b626;
+    --ts3-favorite-stroke: #8a6d1f;
+
+    /* ---- Surfaces ------------------------------------------------------- */
+    --tsv-bg: var(--ts3-ground) !important;
+    --tsv-window-color: var(--ts3-ground) !important;
+    --tsv-shaded-bg: var(--ts3-chrome) !important;
+    --tsv-contrast-bg: var(--ts3-chrome-sunken) !important;
+    --tsv-contrast-strong-bg: var(--ts3-border-strong) !important;
+    --tsv-header-bg: var(--ts3-chrome) !important;
+    --tsv-deviant-bg: var(--ts3-chrome-raised) !important;
+    --ts-new-header-bg: var(--ts3-chrome) !important;
+    --strong-bg: var(--ts3-chrome) !important;
+    --tsv-side-bar-bg-gradient-bottom: var(--ts3-chrome) !important;
+    --tsv-preview-bg: var(--ts3-chrome) !important;
+    --tsv-settings-bg: var(--ts3-chrome) !important;
+    --tsv-header-toolbar-bg: var(--ts3-ground) !important;
+    --tsv-footer-bg: var(--ts3-chrome) !important;
+    --tsv-shaded-footer-bg: var(--ts3-chrome) !important;
+    --tsv-shaded-bar-bg: var(--ts3-ground) !important;
+    --tsv-bar-bg: var(--ts3-chrome) !important;
+    --tsv-shaded-header-bg: var(--ts3-chrome) !important;
+    --tsv-highlight-header-bg: var(--ts3-chrome) !important;
+    --tsv-highlight-header-honeycomb-bg: var(--ts3-chrome) !important;
+    --tsv-unrelated-activity-header-bg: var(--ts3-chrome) !important;
+    --tsv-unrelated-activity-header-controls-bg: var(--ts3-ground) !important;
+    --tsv-unrelated-activity-seperator-color: var(--ts3-border) !important;
+    --tsv-main-bg-gradient-start: var(--ts3-ground) !important;
+    --tsv-main-bg-gradient-end: var(--ts3-ground) !important;
+    --tsv-servertree-bg-gradient: var(--ts3-ground) !important;
+    --ts-tree-background: var(--ts3-ground) !important;
+    --tsv-homebase-bg: var(--ts3-chrome) !important;
+    --tsv-homebase-transparent-bg: rgba(24, 26, 30, 0.85) !important;
+    --tsv-server-info-topic-bg: rgba(31, 34, 39, 0.85) !important;
+    --tsv-servertree-blur-tint: rgba(31, 34, 39, 0.6) !important;
+    --ts-primary-background: var(--ts3-chrome) !important;
+    --ts-primary-background-darker: var(--ts3-chrome-raised) !important;
+    --ts-primary-background-darker2: var(--ts3-hover) !important;
+    --ts-sidebar-background: var(--ts3-chrome) !important;
+    --ts-sidebar-search-background: var(--ts3-ground) !important;
+    --ts-sidebar-footer-background: var(--ts3-chrome) !important;
+    --ts-tab-strip-background: var(--ts3-chrome) !important;
+    --ts-content-titlebar-background: var(--ts3-chrome) !important;
+    --ts-sidebar-titlebar-background: var(--ts3-chrome) !important;
+    --ts-settings-background-action: var(--ts3-chrome-raised) !important;
+    --ts-chat-background-color: var(--ts3-ground) !important;
+    --ts-sidebar-connections-background: var(--ts3-chrome) !important;
+
+    --tsv-server-header-gradient-start: var(--ts3-chrome) !important;
+    --tsv-server-header-gradient-end: var(--ts3-chrome) !important;
+    --tsv-view-header-gradient-start: var(--ts3-chrome) !important;
+    --tsv-view-header-gradient-end: var(--ts3-chrome) !important;
+    --tsv-view-header-bg: var(--ts3-chrome) !important;
+    --ts-tree-channel-bg-start: transparent !important;
+    --ts-tree-channel-bg-end: transparent !important;
+    --spacer-bg-gradient-from: transparent !important;
+    --spacer-bg-gradient-to: transparent !important;
+    --ts-tree-badges-bg: transparent !important;
+
+    --card-background: var(--ts3-ground) !important;
+    --card-hover-background: var(--ts3-hover) !important;
+    --card-background-inverted: var(--ts3-chrome) !important;
+    --card-outline: var(--ts3-border) !important;
+
+    --tsv-content-branding-bg: var(--ts3-chrome) !important;
+    --tsv-content-branding-fancy-gradient-start: var(--ts3-accent) !important;
+    --tsv-content-branding-fancy-gradient-end: var(--ts3-accent-strong) !important;
+    --tsv-content-branding-fancy-bg: var(--ts3-accent) !important;
+    --tsv-content-branding-fancy-bg-linear: var(--ts3-accent) !important;
+    --tsv-content-branding-pinned-bg: var(--ts3-accent-soft) !important;
+    --tsv-content-branding-servers-bg-gradient-stop-1: var(--ts3-chrome) !important;
+    --tsv-content-branding-servers-bg-gradient-stop-2: var(--ts3-chrome-sunken) !important;
+    --tsv-content-branding-servers-bg-gradient-stop-3: var(--ts3-chrome-sunken) !important;
+    --tsv-chat-widget-bg: var(--ts3-ground) !important;
+    --tsv-dashboard-add-contact-bg: var(--ts3-chrome-sunken) !important;
+
+    /* ---- Text ----------------------------------------------------------- */
+    --tsv-font-color: var(--ts3-text) !important;
+    --tsv-preview-font-color: var(--ts3-text) !important;
+    --tsv-font-color-invert: var(--ts3-chrome-sunken) !important;
+    --tsv-item-title-color: var(--ts3-text) !important;
+    --tsv-item-subtitle-color: var(--ts3-text-muted) !important;
+    --tsv-font-subtitle-color: var(--ts3-text-muted) !important;
+    --tsv-item-accessory-color: var(--ts3-text-muted) !important;
+    --tsv-contrast-font-color: var(--ts3-text) !important;
+    --tsv-contrast-color: var(--ts3-text) !important;
+    --tsv-header-font-color: var(--ts3-text) !important;
+    --tsv-shaded-header-font-color: var(--ts3-text) !important;
+    --tsv-highlight-header-font-color: var(--ts3-text) !important;
+    --tsv-tab-item-single-font-color: var(--ts3-text-muted) !important;
+    --tsv-disabled-color: var(--ts3-text-faint) !important;
+    --tsv-connection-client-font-color: var(--ts3-text) !important;
+    --ts-primary-font-color: var(--ts3-text) !important;
+    --ts-primary-font-color-invert: var(--ts3-chrome-sunken) !important;
+    --ts-secondary-font-color: var(--ts3-text-muted) !important;
+    --ts-secondary-font-color-invert: var(--ts3-chrome-sunken) !important;
+    --ts-third-font-color: var(--ts3-text) !important;
+    --ts-muted-font-color: var(--ts3-text-faint) !important;
+    --ts-contact-typing-color: var(--ts3-text-muted) !important;
+    --ts-settings-info-text-color: var(--ts3-text-muted) !important;
+    --ts-chat-sender-name-color: var(--ts3-text) !important;
+    --ts-chat-system-message-text-color: var(--ts3-text-muted) !important;
+    --ts-menu-action-color: var(--ts3-text) !important;
+    --ts-menu-action-border: var(--ts3-accent-strong) !important;
+    --font-color-button-white: var(--ts3-accent-strong) !important;
+
+    /* ---- Accent, selection, states ------------------------------------- */
+    --tsv-tint: var(--ts3-accent) !important;
+    --tsv-tint2: var(--ts3-accent-strong) !important;
+    --tsv-highlight-color: var(--ts3-accent) !important;
+    --ts-primary-accent-color: var(--ts3-accent) !important;
+    --ts-brand-color-bl: var(--ts3-accent) !important;
+    --ts-drag-border: var(--ts3-accent) !important;
+    --tsv-item-selection: var(--ts3-hover) !important;
+    --tsv-shaded-item-selection: var(--ts3-hover) !important;
+    --tsv-shaded-bg-selection: var(--ts3-selection) !important;
+    --settings-highlight-bg: var(--ts3-selection) !important;
+    --ts-tree-item-hover-bg-color: var(--ts3-hover) !important;
+    --tsv-tab-content: var(--ts3-chrome) !important;
+    --tsv-tab-item-active: var(--ts3-ground) !important;
+    --tsv-shade: rgba(255, 255, 255, 0.05) !important;
+    --tsv-shadow-color: var(--ts3-shadow) !important;
+    --ts-popout-shadow: 0 6px 18px var(--ts3-shadow) !important;
+
+    --tsv-online-color: var(--ts3-online) !important;
+    --presence-online: var(--ts3-online) !important;
+    --tsv-accept-color: var(--ts3-online) !important;
+    --tsv-accept-light-color: #7ad49a !important;
+    --tsv-away-color: var(--ts3-away) !important;
+    --presence-away: var(--ts3-away) !important;
+    --tsv-error-color: var(--ts3-error) !important;
+    --tsv-error-light-color: var(--ts3-error-soft) !important;
+    --ts-error-color: var(--ts3-error) !important;
+    --presence-dnd: var(--ts3-error) !important;
+    --ts-settings-warning-color: var(--ts3-away) !important;
+    --ts-settings-info-color: var(--ts3-online) !important;
+    --tsv-slider-vad-color: var(--ts3-online) !important;
+    --tsv-favorite-fill: var(--ts3-favorite) !important;
+    --tsv-favorite-stroke: var(--ts3-favorite-stroke) !important;
+
+    /* ---- Borders, separators ------------------------------------------- */
+    --tsv-separation-border-color: var(--ts3-border) !important;
+    --tsv-separation-border: 1px solid var(--ts3-border) !important;
+    --tsv-separation-border-strong-color: var(--ts3-border) !important;
+    --tsv-separation-border-strong: 1px solid var(--ts3-border) !important;
+    --tsv-separation-border-thick: 1px solid var(--ts3-border) !important;
+    --presence-separator-presence: var(--ts3-border) !important;
+    --horizontal-separator-color: var(--ts3-border) !important;
+    --horizontal-separator-width: 1px !important;
+    --ts-divider-bg-color: var(--ts3-border) !important;
+    --ts-panel-separator-color: var(--ts3-border) !important;
+    --presence-outline-color: var(--ts3-ground) !important;
+
+    /* ---- Controls ------------------------------------------------------- */
+    --tsv-button-bg: var(--ts3-accent) !important;
+    --tsv-button-hover-bg: var(--ts3-accent-strong) !important;
+    --tsv-button-filled-bg: var(--ts3-accent) !important;
+    --tsv-button-filled-disabled-bg: var(--ts3-border-strong) !important;
+    --tsv-button-filled-destructive-bg: var(--ts3-error) !important;
+    --tsv-button-filled-destructive-hover-bg: #c94a4a !important;
+    --tsv-button-warning-bg: var(--ts3-error) !important;
+    --tsv-button-warning-hover-bg: #c94a4a !important;
+    --hero-button-background: var(--ts3-accent) !important;
+    --hero-button-border: 1px solid var(--ts3-accent-strong) !important;
+    --tsv-slider-track-bg: var(--ts3-border-strong) !important;
+    --tsv-toggle-bg: var(--ts3-border-strong) !important;
+    --ts-toggle-bg-color: var(--ts3-accent) !important;
+    --ts-toggle-checked-bg-color: var(--ts3-accent) !important;
+    --ts-toggle-pill-color: var(--ts3-text) !important;
+    --ts-toggle-checked-pill-color: var(--ts3-on-accent) !important;
+    --tsv-control-handle-bg: var(--ts3-text) !important;
+    --tsv-control-handle-active-bg: var(--ts3-accent) !important;
+    --ts-checkbox-bg-color: var(--ts3-chrome-raised) !important;
+    --ts-select-bg: var(--ts3-chrome-raised) !important;
+    --ts-select-border-color: var(--ts3-border) !important;
+    --ts-select-border-radius: 3px !important;
+    --ts-select-arrow-color: var(--ts3-text-muted) !important;
+    --ts-select-disabled-bg: var(--ts3-chrome) !important;
+    --ts-select-disabled-color: var(--ts3-text-faint) !important;
+    --ts-select-placeholder-color: var(--ts3-text-faint) !important;
+    --ts-select-spinner-color: var(--ts3-accent) !important;
+    --ts-select-option-selected-color: var(--ts3-accent) !important;
+    --ts-select-option-selected-secondary-color: var(--ts3-accent) !important;
+    --tsv-scrollbar-bg: var(--ts3-scrollbar) !important;
+    --tsv-scrollbar-chunks--bg-1: var(--ts3-accent) !important;
+    --tsv-scrollbar-chunks--bg-2: var(--ts3-accent-strong) !important;
+    --graph-layer-bg: var(--ts3-border-strong) !important;
+    --ts-keybinds-bind-action-border-color: var(--ts3-border) !important;
+    --ts-keybinds-bind-action-background-color: var(--ts3-chrome-raised) !important;
+
+    /* ---- Context menu --------------------------------------------------- */
+    --ts-context-menu-background: var(--ts3-chrome-raised) !important;
+    --tsv-context-menu-border: 1px solid var(--ts3-border-strong) !important;
+    --tsv-context-menu-item-selection: var(--ts3-selection) !important;
+    --tsv-context-menu-disabled-color: var(--ts3-text-faint) !important;
+    --tsv-context-menu-error-color: var(--ts3-error) !important;
+    --ts-context-menu-font-color: var(--ts3-text) !important;
+    --ts-context-menu-icon-tint-color: var(--ts3-accent) !important;
+    --ts-context-menu-item-action-hover-bg: var(--ts3-selection) !important;
+
+    /* ---- Icons ---------------------------------------------------------- */
+    --tsv-icon-base: #c9cfd7 !important;
+    --tsv-icon-shaded-bg: var(--ts3-chrome) !important;
+    --tsv-icon-base-contrast: var(--ts3-chrome-sunken) !important;
+    --tsv-icon-channel-bg: var(--ts3-accent) !important;
+    --tsv-icon-channel-shade1: #b7cde6 !important;
+    --tsv-icon-channel-shade2: #7fa3cc !important;
+    --tsv-icon-channel-shade3: #d6e4f3 !important;
+    --tsv-icon-folder: #e0a63a !important;
+    --ts-titlebar-button-color: var(--ts3-text-muted) !important;
+    --ts-titlebar-button-color-hover: var(--ts3-text) !important;
+
+    --tsv-client-silent--outline: var(--ts3-accent) !important;
+    --tsv-client-silent--gradient-start: var(--ts3-client-silent-1) !important;
+    --tsv-client-silent--gradient-stop: var(--ts3-client-silent-2) !important;
+    --tsv-client-talking--outline: var(--ts3-accent) !important;
+    --tsv-client-talking--gradient-start: var(--ts3-client-talking-1) !important;
+    --tsv-client-talking--gradient-stop: var(--ts3-client-talking-2) !important;
+    --ts-client-voiceless-gradient-start: #5a6470 !important;
+    --ts-client-voiceless-gradient-stop: #3f4750 !important;
+    --ts-client-detailed-voiceless-gradient-start: #5a6470 !important;
+    --ts-client-detailed-voiceless-gradient-stop: #3f4750 !important;
+
+    /* ---- Chat ----------------------------------------------------------- */
+    --tsv-chat-remote-bg: var(--ts3-chat-remote) !important;
+    --tsv-chat-remote-font-color: var(--ts3-text) !important;
+    --tsv-chat-self-bg: var(--ts3-chat-self) !important;
+    --tsv-chat-self-bg-transparent: rgba(36, 64, 94, 0.7) !important;
+    --tsv-chat-self-bg-pending: var(--ts3-accent-soft) !important;
+    --tsv-chat-self-bg-pending-transparent: rgba(36, 64, 94, 0.4) !important;
+    --tsv-chat-self-font-color: var(--ts3-text) !important;
+    --tsv-chat-deleted-bg: #3a2a2a !important;
+    --tsv-chat-deleted-font-color: var(--ts3-text-muted) !important;
+    --tsv-chat-link-color: var(--ts3-accent-strong) !important;
+    --md-link: var(--ts3-accent-strong) !important;
+    --tsv-chat-mention-bg: var(--ts3-mention) !important;
+    --ts-chat-mention-bg-opacity: 0.45 !important;
+    --ts-chat-system-message-bg: var(--ts3-chrome) !important;
+    --ts-chat-system-secured-text-color: var(--ts3-online) !important;
+    --ts-chat-system-highlight-text-color: var(--ts3-accent-strong) !important;
+    --ts-chat-message-group-divider-color: var(--ts3-border) !important;
+    --tsv-spoiler-background-color: var(--ts3-border-strong) !important;
+    --md-code-badge-bg: var(--ts3-chrome) !important;
+}

@@ -1,0 +1,55 @@
+{
+    "name": "Threespeak",
+    "description": "The calm, flat TeamSpeak 3 look for TeamSpeak 6: dense channel tree, hairline borders, one blue accent. Light and dark, optionally with the chat below the tree.",
+    "version": "1.0.0",
+    "identifier": "dev.renner.threespeak",
+    "engines": {
+        "teamspeak": 1
+    },
+    "repository": {
+        "url": "https://github.com/rennerdo30/threespeak",
+        "type": "git"
+    },
+    "homepage": "https://github.com/rennerdo30/threespeak",
+    "image": "preview-light.svg",
+    "license": "MIT",
+    "keywords": [
+        "classic",
+        "flat",
+        "ts3",
+        "light",
+        "dark"
+    ],
+    "author": {
+        "name": "Renner",
+        "url": "https://github.com/rennerdo30"
+    },
+    "content": {
+        "themes": [
+            {
+                "name": "Threespeak Light",
+                "source": "threespeak-light.css",
+                "image": "preview-light.svg",
+                "apiVersion": 1
+            },
+            {
+                "name": "Threespeak Dark",
+                "source": "threespeak-dark.css",
+                "image": "preview-dark.svg",
+                "apiVersion": 1
+            },
+            {
+                "name": "Threespeak Light, chat below",
+                "source": "threespeak-light-stacked.css",
+                "image": "preview-light.svg",
+                "apiVersion": 1
+            },
+            {
+                "name": "Threespeak Dark, chat below",
+                "source": "threespeak-dark-stacked.css",
+                "image": "preview-dark.svg",
+                "apiVersion": 1
+            }
+        ]
+    }
+}

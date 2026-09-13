@@ -1,0 +1,711 @@
+/* ==========================================================================
+   Threespeak — structure layer (shared by both variants)
+   Only references tokens defined in tokens-*.css. Selectors are prefixed
+   with `html` so they outrank the client's own theme rules of equal
+   specificity no matter which stylesheet the client injects last.
+   ========================================================================== */
+
+/* ---- Typography ---------------------------------------------------------- */
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 300 800;
+    font-display: swap;
+    src: url("fonts/OpenSans-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 300 800;
+    font-display: swap;
+    src: url("fonts/OpenSans-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root, ::after, ::before {
+    --tsv-font-family: "Open Sans", "Segoe UI Variable Text", "Segoe UI", "Noto Sans", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    --tsv-font-weight-normal: 400 !important;
+    --tsv-font-weight-semibold: 600 !important;
+    --tsv-font-weight-bold: 700 !important;
+
+    /* Type scale: 11 / 12 / 13 / 15 / 17 / 20 */
+    --tsv-font-size-title: 20px !important;
+    --tsv-font-size-title-small: 17px !important;
+    --tsv-font-size-subtitle-large: 17px !important;
+    --tsv-font-size-large: 15px !important;
+    --tsv-font-size: 13px !important;
+    --tsv-font-size-content: 13px !important;
+    --tsv-font-size-small: 12px !important;
+    --tsv-font-size-minimal: 11px !important;
+    --tsv-line-height-title: 26px !important;
+    --tsv-line-height-title-small: 22px !important;
+    --tsv-line-height-subtitle-large: 22px !important;
+    --tsv-line-height-large: 20px !important;
+    --tsv-line-height: 18px !important;
+    --tsv-line-height-content: 18px !important;
+    --tsv-line-height-small: 16px !important;
+    --tsv-line-height-minimal: 14px !important;
+
+    /* Geometry: flat and rectangular */
+    --tsv-border-radius-xxxlarge: 6px !important;
+    --tsv-border-radius-xxlarge: 6px !important;
+    --tsv-border-radius-xlarge: 4px !important;
+    --tsv-border-radius-large: 4px !important;
+    --tsv-border-radius: 3px !important;
+    --tsv-border-radius-small: 2px !important;
+    --tsv-border-radius-pill: 3px !important;
+    --discovery-card-border-radius: 6px !important;
+    --tsv-video-border-radius: 4px !important;
+    --tsv-border-width: 1px !important;
+    --tsv-separation-border-width: 1px !important;
+    --tsv-separation-border-strong-width: 1px !important;
+
+    /* Density: TeamSpeak 3 sized rows */
+    --channel-height: 24px !important;
+    --channel-spacing: 4px !important;
+    --ts-tree-channel-height-default: 28px !important;
+    --ts-tree-spacer-height-default: 28px !important;
+    --ts-tree-client-height-default: 24px !important;
+    --ts-tree-client-height-compact: 24px !important;
+    --ts3-divider-offset: 2px;                 /* gap between a group and the next divider */
+    --ts-tree-badges-height-default: 18px !important;
+    --ts-tree-badges-height-compact: 18px !important;
+    --tsv-padding-h: 16px !important;
+    --tsv-padding-h-small: 8px !important;
+    --tsv-padding-v-large: 12px !important;
+    --tsv-bar-height: 32px !important;
+    --tsv-scrollbar-width: 8px !important;
+    --tsv-icon-scale: 0.9 !important;
+    --ts-toggle-pill-size: 14px !important;
+    --ts-checkbox-size: 18px !important;
+    --ts-text-input-box-height: 26px !important;
+}
+
+/* ---- Window chrome ------------------------------------------------------- */
+html .tsv-window {
+    background: var(--tsv-bg) !important;
+}
+html .ts-content-titlebar:before {
+    background: var(--tsv-header-bg) !important;
+}
+html .tsv-header {
+    background: var(--tsv-header-bg) !important;
+    border-bottom: 1px solid var(--tsv-separation-border-color) !important;
+    color: var(--tsv-header-font-color) !important;
+}
+html .tsv-header:before,
+html .tsv-highlight.tsv-header:before,
+html .tsv-header.unrelated:before,
+html .tsv-header-backdrop {
+    background: var(--tsv-header-bg) !important;
+    -webkit-mask: none !important;
+    mask: none !important;
+    opacity: 1 !important;
+}
+html .tsv-activity-main .tsv-header > .tsv-window-bar::after,
+html .tsv-header-bar-below-tools:before {
+    display: none !important;
+}
+html .tsv-header .tsv-central-toolbar-buttons::before {
+    background: var(--tsv-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius) !important;
+    -webkit-mask-image: none !important;
+    opacity: 1 !important;
+}
+html .tsv-header.tsv-floating-background {
+    backdrop-filter: none !important;
+}
+
+/* Column separators between sidebar, tree and content */
+html .tsv-activity-primary,
+html .tsv-activity-secondary,
+html .tsv-activity-main {
+    border-left: 1px solid var(--tsv-separation-border-color) !important;
+}
+/* The tree pane always fills the column here. The "chat below" variants let the
+   user resize it, which writes an inline height that would otherwise survive a
+   switch back to this layout; the stacked layout overrides this minimum. */
+html .tsv-activity-main {
+    min-height: 100% !important;
+}
+
+/* ---- Sidebar ------------------------------------------------------------- */
+html .tsv-sidebar .tsv-body-background,
+html .tsv-activity-secondary .tsv-body-background {
+    background: var(--tsv-shaded-bg) !important;
+}
+/* Section bars (Bookmarks, Contacts, Group Chats): a quiet band, not an input box */
+html .tsv-sidebar .tsv-body-background .tsv-tabs::before,
+html .tsv-tabs-slim:before {
+    background: var(--ts3-chrome-raised) !important;
+    border: none !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .tsv-sidebar .tsv-search-bar,
+html .tsv-sidebar .tsv-location-bar,
+html .tsv-activity-secondary .tsv-search-bar,
+html .tsv-activity-secondary .tsv-location-bar {
+    background: var(--tsv-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .tsv-location-bar.tsv-active,
+html .tsv-location-bar:focus,
+html .tsv-search-bar.tsv-active,
+html .tsv-search-bar:focus {
+    border-color: var(--tsv-tint) !important;
+    box-shadow: none !important;
+}
+
+/* Footers: a hairline instead of a thick coloured rule */
+html .tsv-footer {
+    --tsv-bar-height: 40px !important;
+}
+html .tsv-footer::before,
+html .tsv-sidebar .tsv-footer:not(.transparent)::before,
+html .tsv-activity-secondary .tsv-footer:not(.transparent)::before {
+    display: none !important;
+}
+html .tsv-sidebar .tsv-footer:not(.transparent),
+html .tsv-activity-secondary .tsv-footer:not(.transparent),
+html .tsv-dashboard-widget .tsv-footer:not(.transparent) {
+    background: var(--tsv-shaded-footer-bg) !important;
+    border-top: 1px solid var(--tsv-separation-border-color) !important;
+}
+html .ts-settings-titlebar,
+html .ts-sidebar-footer,
+html .ts-sidebar-tabs {
+    border-top: 1px solid var(--tsv-separation-border-color) !important;
+}
+
+/* "Create a TeamSpeak Community" promo under the server list: hidden.
+   The same action stays reachable through the universal search bar. */
+html .tsv-sidebar .ts-join-community,
+html .ts-join-community {
+    display: none !important;
+}
+
+/* The pulsing "Create a TeamSpeak Community" button becomes a plain button */
+html .tsv-button-hero {
+    animation: none !important;
+    box-shadow: none !important;
+    height: 28px !important;
+    padding-left: var(--tsv-padding-h) !important;
+    padding-right: var(--tsv-padding-h) !important;
+    font-weight: var(--tsv-font-weight-semibold) !important;
+    color: var(--ts3-on-accent) !important;
+    --tsv-icon-base: var(--ts3-on-accent) !important;
+}
+
+/* ---- Server tree --------------------------------------------------------- */
+html .ts-server-tree-item-root {
+    background: var(--tsv-bg) !important;
+}
+html .ts-server-tree-wrapper .scroller {
+    padding-left: var(--tsv-padding-h-small) !important;
+    padding-right: var(--tsv-padding-h-small) !important;
+}
+
+/* No gradient pills behind channels, spacers or clients */
+html .ts-server-tree-item-background-no-image,
+html .ts-server-tree-item-background-image,
+html .ts-server-tree-item-background-image-full,
+html .ts-server-tree-item-leaf.spacer .ts-server-tree-item-background-no-image,
+html .ts-server-tree-item-leaf.channel:not(.spacer) .ts-server-tree-item-background-no-image + .tsv-item-highlight {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+html .ts-server-tree-item-background-image .ts-server-tree-item-background-image-blur,
+html .ts-server-tree-item-background-image-full .ts-server-tree-item-background-image-blur,
+html .ts-server-tree-item-background-no-image .ts-server-tree-item-background-image-blur {
+    background: linear-gradient(to right, transparent 0, var(--tsv-bg) 60%, transparent 100%) !important;
+}
+
+/* One flat highlight box per row: transparent at rest, tinted on hover,
+   selection colour plus a 2px accent rule when selected */
+html .ts-server-tree-item-leaf .tsv-item-highlight,
+html .ts-server-tree-item-leaf .tsv-item-highlight-extra,
+html .ts-server-tree-item-leaf.channel .tsv-item-highlight,
+html .ts-server-tree-item-leaf.spacer .tsv-item-highlight,
+html .ts-server-tree-item-leaf.client .tsv-item-highlight {
+    background: transparent !important;
+    border: none !important;
+    border-radius: var(--tsv-border-radius) !important;
+    box-shadow: none !important;
+    top: 1px !important;
+    bottom: 1px !important;
+    left: 0 !important;
+    right: 0 !important;
+    opacity: 1 !important;
+    transition: none !important;
+}
+html .ts-server-tree-item-leaf:hover .tsv-item-highlight,
+html .ts-server-tree-item-leaf.channel:hover .tsv-item-highlight,
+html .ts-server-tree-item-leaf.client:hover .tsv-item-highlight {
+    background: var(--ts3-hover) !important;
+}
+html .ts-server-tree-item-leaf.tsv-active .tsv-item-highlight,
+html .ts-server-tree-item-leaf.channel.tsv-active .tsv-item-highlight,
+html .ts-server-tree-item-leaf.client.tsv-active .tsv-item-highlight {
+    background: var(--ts3-hover) !important;
+    box-shadow: none !important;
+}
+html .ts-server-tree-item-leaf.tsv-selected .tsv-item-highlight,
+html .ts-server-tree-item-leaf.channel.tsv-selected .tsv-item-highlight,
+html .ts-server-tree-item-leaf.client.tsv-selected .tsv-item-highlight,
+html .ts-server-tree-item-leaf.spacer.tsv-selected .tsv-item-highlight {
+    background: var(--ts3-selection) !important;
+    box-shadow: inset 2px 0 0 var(--tsv-tint) !important;
+}
+/* Full / password channels: keep the ring, but as a thin flat outline */
+html .ts-server-tree-item-leaf.channel:not(.spacer).is-full .tsv-item-highlight::after,
+html .ts-server-tree-item-leaf.channel:not(.spacer).has-password .tsv-item-highlight::after {
+    border-radius: var(--tsv-border-radius) !important;
+    opacity: 0.9 !important;
+}
+html .ts-server-tree-item-leaf.channel:not(.spacer).is-full,
+html .ts-server-tree-item-leaf.channel:not(.spacer).has-password {
+    --indicator-outline-size: 1px !important;
+}
+/* No sliding on hover */
+html .ts-server-tree-item-leaf.channel:hover .ts-server-tree-item-background-image__img,
+html .ts-server-tree-item-leaf.channel.tsv-active .ts-server-tree-item-background-image__img {
+    margin-left: var(--margin-left) !important;
+}
+html .ts-server-tree-item-background-image__img {
+    transition: none !important;
+}
+
+/* Divider above every channel row, separating it from the group before it.
+   Drawn as a 1px background stripe so the row keeps its fixed height; the
+   highlight box starts below the line, so it stays visible on hover. */
+html .ts-server-tree-item-leaf.channel {
+    background: linear-gradient(var(--ts3-divider), var(--ts3-divider)) no-repeat 0 var(--ts3-divider-offset) / 100% 1px !important;
+}
+html .ts-server-tree-item-leaf.channel .tsv-item-highlight,
+html .ts-server-tree-item-leaf.channel .tsv-item-highlight-extra {
+    top: calc(var(--ts3-divider-offset) + 2px) !important;
+}
+
+/* Row text */
+html .ts-server-tree-item-leaf .ts-server-tree-item-text,
+html .ts-server-tree-item-leaf.client .ts-server-tree-item-text,
+html .ts-server-tree-item-leaf.client:not(.compact) .ts-server-tree-item-text {
+    font-size: var(--tsv-font-size) !important;
+    line-height: var(--tsv-line-height) !important;
+}
+html .ts-server-tree-item-leaf.channel .ts-server-tree-item-text {
+    font-weight: var(--tsv-font-weight-normal) !important;
+    color: var(--tsv-font-color) !important;
+}
+html .ts-server-tree-item-leaf.channel.tsv-active .ts-server-tree-item-text,
+html .ts-server-tree-item-leaf.client.tsv-active .ts-server-tree-item-text {
+    font-weight: var(--tsv-font-weight-semibold) !important;
+}
+html .ts-server-tree-item-leaf.spacer > .ts-server-tree-item-node .ts-server-tree-item-text {
+    font-size: var(--tsv-font-size-small) !important;
+    font-weight: var(--tsv-font-weight-semibold) !important;
+    font-style: normal !important;
+    color: var(--tsv-font-subtitle-color) !important;
+    letter-spacing: 0.02em !important;
+}
+/* Clients sit one indent step inside their channel */
+html .ts-server-tree-item-node-content.client {
+    padding-left: calc(var(--tsv-padding-h) * 2) !important;
+}
+
+/* Client status: small dot, no avatar bubble shadow */
+html .ts-server-tree-icon.client:not(.compact) {
+    height: 16px !important;
+    width: 16px !important;
+    min-height: 16px !important;
+    min-width: 16px !important;
+    margin-right: 6px !important;
+    box-shadow: none !important;
+    border-radius: 50% !important;
+}
+html .ts-server-tree-icon.client .ts-server-tree-client-talking {
+    --tsv-icon-size: 32px !important;
+    top: -8px !important;
+}
+html .ts-server-tree-icon.channel {
+    height: 16px !important;
+    width: 16px !important;
+    min-height: 16px !important;
+    min-width: 16px !important;
+}
+
+/* Group icons and badges: raw icons, no badge tray */
+html .ts-server-tree-active-status,
+html .ts-server-tree-inactive-status {
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+html .ts-server-tree-item-groups span {
+    background: var(--tsv-shaded-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius-small) !important;
+    color: var(--tsv-font-subtitle-color) !important;
+    font-size: var(--tsv-font-size-minimal) !important;
+    line-height: 14px !important;
+}
+
+/* Server header: one compact row instead of a 90px banner card */
+html .ts-server-header .tsv-view-banner {
+    --tsv-icon-size-xlarge: 22px !important;
+    --tsv-icon-size-xxlarge: 22px !important;
+    --top-spacing: 0px !important;
+    --total-banner-height: 36px !important;
+    min-height: 36px !important;
+    height: 36px !important;
+    margin: var(--tsv-padding-v-small) var(--tsv-padding-h-small) var(--tsv-padding-v-small) var(--tsv-padding-h-small) !important;
+    padding-left: var(--tsv-padding-h-small) !important;
+    padding-right: var(--tsv-padding-h-small) !important;
+    background: transparent !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .ts-server-header .tsv-view-banner .tsv-view-image,
+html .ts-server-header .tsv-view-banner .tsv-view-content,
+html .ts-server-header .tsv-view-banner .tsv-view-accessory {
+    margin-top: 0 !important;
+}
+html .ts-server-header .tsv-view-banner .tsv-view-image {
+    margin-right: var(--tsv-padding-h-small) !important;
+}
+html .ts-server-header .tsv-view-banner .tsv-view-image svg {
+    filter: none !important;
+}
+html .ts-server-header .tsv-view-banner .tsv-view-content {
+    font-size: var(--tsv-font-size) !important;
+    line-height: var(--tsv-line-height) !important;
+    font-weight: var(--tsv-font-weight-semibold) !important;
+    color: var(--tsv-font-color) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+html .ts-server-header .tsv-view-banner .tsv-view-background {
+    margin-top: 0 !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .ts-server-header .tsv-view-banner .tsv-view-background::after {
+    background: var(--tsv-shaded-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius) !important;
+    opacity: 1 !important;
+}
+html .ts-server-header .tsv-view-banner .tsv-view-background::before,
+html .ts-server-header .tsv-view-banner .tsv-view-banner-default-icon {
+    display: none !important;
+}
+html .ts-server-header .tsv-view-banner.tsv-active .tsv-view-background::after {
+    border-color: var(--tsv-tint) !important;
+}
+html .ts-server-header .tsv-view-banner .tsv-view-background img {
+    opacity: 0.35 !important;
+}
+
+/* Generic view banners (channel and account headers): flat */
+html .tsv-view-banner .tsv-view-background:before {
+    display: none !important;
+}
+html .tsv-view-banner .tsv-view-background:after {
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .tsv-view-banner,
+html .tsv-view-banner-container {
+    background: var(--tsv-shaded-bg) !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+
+/* ---- Cards and panels ---------------------------------------------------- */
+html .ts-card,
+html .ts-simple-card,
+html .tsv-server-info-card,
+html .tsv-activity-secondary .ts-card,
+html .tsv-sidebar .ts-card {
+    background: var(--card-background) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius-large) !important;
+}
+html .ts-card.ts-card-light,
+html .ts-card.nested,
+html .tsv-sidebar .ts-card.nested,
+html .tsv-activity-secondary .ts-card.nested {
+    background: var(--tsv-shaded-bg) !important;
+}
+html .ts-card.transparent,
+html .tsv-sidebar .ts-card.transparent,
+html .tsv-activity-secondary .ts-card.transparent {
+    background: transparent !important;
+    border: none !important;
+}
+html .ts-card.context {
+    background: var(--tsv-shaded-bg) !important;
+}
+html .tsv-server-info-grid .tsv-server-info-grid-item,
+html .tsv-server-info-grid .tsv-server-info-grid-left,
+html .tsv-activity-primary .tsv-server-info-grid .tsv-server-info-grid-item {
+    background: var(--card-background) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius-large) !important;
+}
+html .tsv-server-info-grid .tsv-server-info-grid-item.clickable:hover {
+    background: var(--card-hover-background) !important;
+    border-radius: var(--tsv-border-radius-large) !important;
+}
+html .tsv-server-info-default-banner {
+    background: var(--tsv-shaded-bg) !important;
+    opacity: 1 !important;
+    min-height: 48px !important;
+}
+html .tsv-activity-primary .ts-widget-wrapper,
+html .tsv-activity-primary .ts-widget:not(.transparent),
+html .tsv-activity-primary .tsv-settings-subcategory .ts-widget-wrapper,
+html .tsv-activity-primary .tsv-settings-subcategory .ts-widget:not(.transparent) {
+    background: var(--card-background) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius-large) !important;
+}
+html .tsv-activity-primary .ts-widget-wrapper .tsv-bar .tsv-segmented-control,
+html .tsv-activity-primary .tsv-settings-subcategory .ts-widget-wrapper .tsv-segmented-control {
+    background: var(--tsv-shaded-bg) !important;
+}
+html .tsv-dashboard-widget-hero-text {
+    background: var(--tsv-shaded-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+}
+
+/* Section headers: bold label, no double-layer background */
+html .ts-widget-section-header .title:before,
+html .ts-widget-section-header .title:after,
+html .ts-widget-section-header-full-width:before,
+html .ts-widget-section-header-full-width:after {
+    display: none !important;
+}
+html .ts-widget-section-header .title,
+html .ts-widget-section-header-full-width .title {
+    font-family: var(--tsv-font-family) !important;
+    font-size: var(--tsv-font-size) !important;
+    font-weight: var(--tsv-font-weight-bold) !important;
+    color: var(--tsv-font-color) !important;
+    padding-left: var(--tsv-padding-h-small) !important;
+}
+
+/* ---- Inputs, buttons, controls ------------------------------------------- */
+html .ts-text-input-box-inner .ts-input,
+html .ts-input,
+html .tsv-activity-primary .tsv-bar .ts-input,
+html .tsv-modal-overlay .tsv-bar .ts-input {
+    background: var(--tsv-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius) !important;
+    color: var(--tsv-font-color) !important;
+    box-shadow: none !important;
+}
+html .ts-text-input-box-inner .ts-input:not([disabled]):hover,
+html .ts-input:not([disabled]):hover {
+    border-color: var(--tsv-separation-border-strong-color) !important;
+    box-shadow: none !important;
+}
+html .ts-text-input-box-inner .ts-input:not([disabled]):focus,
+html .ts-input:not([disabled]):focus {
+    border-color: var(--tsv-tint) !important;
+    box-shadow: 0 0 0 1px var(--tsv-tint) !important;
+    outline: none !important;
+}
+html .ts-text-input-box-inner .ts-input::placeholder {
+    color: var(--tsv-font-subtitle-color) !important;
+    opacity: 0.8 !important;
+}
+html .tsv-button-filled,
+html .tsv-tool-button.filled.tinted {
+    background: var(--tsv-button-filled-bg) !important;
+    border: none !important;
+    border-radius: var(--tsv-border-radius) !important;
+    color: var(--ts3-on-accent) !important;
+    font-weight: var(--tsv-font-weight-semibold) !important;
+    --tsv-icon-base: var(--ts3-on-accent) !important;
+    --tsv-icon-tint: var(--ts3-on-accent) !important;
+    --tsv-icon-tint2: var(--ts3-on-accent) !important;
+}
+html .tsv-button-filled:hover {
+    background: var(--tsv-button-hover-bg) !important;
+}
+html .tsv-button-filled.tsv-is-disabled,
+html .tsv-tool-button.filled.tsv-is-disabled {
+    background: var(--tsv-button-filled-disabled-bg) !important;
+}
+html .tsv-segmented-control,
+html .tsv-segmented-control:not(.tsv-segmented-control-list),
+html .tsv-sidebar .tsv-bar .tsv-segmented-control,
+html .tsv-activity-secondary .tsv-bar .tsv-segmented-control {
+    background: var(--tsv-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .tsv-segmented-control .tsv-segmented-button.active {
+    background: var(--ts3-selection) !important;
+    color: var(--tsv-tint) !important;
+    border-radius: var(--tsv-border-radius-small) !important;
+}
+html .tsv-tab-item-active:before,
+html .tsv-activity-secondary .tsv-tabs .tsv-bar-item.active,
+html .tsv-sidebar .tsv-tabs .tsv-bar-item.active {
+    background: var(--tsv-tab-item-active) !important;
+    border-radius: var(--tsv-border-radius-small) !important;
+}
+html .ts-toggle {
+    border-radius: 10px !important;
+}
+html .ts-toggle-inner {
+    border-radius: 10px !important;
+}
+html .ts-toggle:focus-within {
+    border: 1px solid var(--tsv-tint) !important;
+}
+
+/* ---- Settings ------------------------------------------------------------ */
+html .tsv-settings-categories.not-in-sidebar .tsv-item {
+    min-height: 32px !important;
+    margin-right: var(--tsv-padding-h-small) !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .tsv-settings-categories.not-in-sidebar .tsv-item.tsv-selected > .tsv-item-highlight {
+    background: var(--settings-highlight-bg) !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .tsv-settings-categories.not-in-sidebar .tsv-item.tsv-selected > .tsv-item-highlight:after {
+    width: 2px !important;
+    left: 0 !important;
+    margin: 0 !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+}
+html .tsv-settings-theme-picker .tsv-settings-theme-picker-item {
+    border-radius: var(--tsv-border-radius-large) !important;
+}
+html .tsv-settings-drawer {
+    background: var(--tsv-shaded-bg) !important;
+    border-top: 1px solid var(--tsv-separation-border-color) !important;
+}
+html .ts-appearance-settings .ts-collection-item {
+    background: var(--tsv-shaded-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+}
+
+/* ---- Sidebar list items -------------------------------------------------- */
+html .tsv-sidebar .tsv-item-highlight,
+html .tsv-activity-secondary .tsv-item-highlight,
+html .tsv-dashboard-widget .tsv-item-highlight {
+    background: var(--tsv-shaded-item-selection) !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .tsv-sidebar .tsv-item.tsv-selected .tsv-item-highlight,
+html .tsv-activity-secondary .tsv-item.tsv-selected .tsv-item-highlight {
+    background: var(--ts3-selection) !important;
+    box-shadow: inset 2px 0 0 var(--tsv-tint) !important;
+}
+html .ts-sidebar-tab-content .ts-sidebar-tab-subnav-header .ts-sidebar-tab-subnav-header-button:hover {
+    background: var(--ts3-hover) !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+
+/* ---- Context menus, modals, notifications -------------------------------- */
+html .ts-context-menu:before,
+html .ts-false-context-menu:before,
+html .ts-connection-info-property:before,
+html .ts-server-events-list:before {
+    display: none !important;
+}
+html .ts-context-menu,
+html .ts-false-context-menu,
+html .ts-connection-info-property,
+html .ts-server-events-list {
+    background: var(--ts-context-menu-background) !important;
+    border: var(--tsv-context-menu-border) !important;
+    border-radius: var(--tsv-border-radius-large) !important;
+    box-shadow: 0 6px 18px var(--tsv-shadow-color) !important;
+    backdrop-filter: none !important;
+}
+html .tsv-modal-overlay .tsv-modal-container {
+    background: var(--tsv-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius-xxlarge) !important;
+    box-shadow: 0 12px 32px var(--tsv-shadow-color) !important;
+}
+html .ts-notification,
+html .ts-notification-widget {
+    border-radius: var(--tsv-border-radius-large) !important;
+}
+
+/* ---- Chat ---------------------------------------------------------------- */
+html .tsv-activity-secondary .ts-chat-input-container,
+html .tsv-sidebar .ts-chat-input-container,
+html .tsv-dashboard-widget .ts-chat-input-container {
+    background: var(--tsv-bg) !important;
+    border-top: 1px solid var(--tsv-separation-border-color) !important;
+}
+html .ts-chat-quick-actions::before,
+html .tsv-activity-secondary .ts-chat-quick-actions:before {
+    background: var(--tsv-shaded-bg) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius) !important;
+}
+html .ts-chat-room-event-bubble {
+    border-radius: var(--tsv-border-radius-large) !important;
+}
+
+/* Chat log as a framed box on the pane's grey ground, the way TeamSpeak 3 drew
+   it. The input floats over the bottom of the box: a grey toolbar strip with a
+   hairline above the text field. */
+html .tsv-activity-detail .ts-chat-container > .tsv-virtual-list-container {
+    background: var(--ts3-ground) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius-large) !important;
+    margin: var(--tsv-padding-v) var(--tsv-padding-h-small) 0 var(--tsv-padding-h-small) !important;
+}
+html .tsv-activity-detail .ts-chat-input-container {
+    background: var(--ts3-ground) !important;
+    border: 1px solid var(--tsv-separation-border-color) !important;
+    border-radius: var(--tsv-border-radius-large) !important;
+    margin-bottom: 0 !important;                /* dock onto the log box's bottom edge */
+    overflow: hidden !important;
+}
+html .ts-chat-input-edit-toolbar {
+    background: var(--tsv-shaded-bg) !important;
+    border-bottom: 1px solid var(--tsv-separation-border-color) !important;
+}
+html .ts-chat-input-container-content {
+    background: var(--ts3-ground) !important;
+}
+
+/* ---- Scrollbars ---------------------------------------------------------- */
+html ::-webkit-scrollbar {
+    width: var(--tsv-scrollbar-width) !important;
+    height: var(--tsv-scrollbar-width) !important;
+    background: transparent !important;
+}
+html ::-webkit-scrollbar-thumb {
+    background: var(--tsv-scrollbar-bg) !important;
+    border-radius: 4px !important;
+}
+html ::-webkit-scrollbar-thumb:hover {
+    background: var(--tsv-font-subtitle-color) !important;
+}
+html ::-webkit-scrollbar-track,
+html ::-webkit-scrollbar-corner {
+    background: transparent !important;
+}
+
+/* ---- Motion -------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    html *,
+    html *::before,
+    html *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

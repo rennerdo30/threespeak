@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768" font-family="Open Sans, Segoe UI, Noto Sans, sans-serif" font-size="14">
+  <title>Threespeak Dark</title>
+  <!-- window -->
+  <rect width="1024" height="768" fill="#1f2227"/>
+  <!-- header bar -->
+  <rect width="1024" height="48" fill="#181a1e"/>
+  <line x1="0" y1="48.5" x2="1024" y2="48.5" stroke="#343942"/>
+  <text x="20" y="30" font-size="15" font-weight="700" fill="#4a94dc">teamspeak</text>
+  <rect x="300" y="12" width="132" height="24" rx="3" fill="#1f2227" stroke="#343942"/>
+  <text x="314" y="29" font-size="11" fill="#98a1ad">AFK</text>
+  <line x1="350" y1="17" x2="350" y2="31" stroke="#343942"/>
+  <circle cx="372" cy="24" r="5" fill="none" stroke="#e3e6ea" stroke-width="1.5"/>
+  <path d="M396 19 l6 5 l-6 5 z" fill="#e3e6ea"/>
+  <text x="944" y="30" font-size="14" fill="#98a1ad">–</text>
+  <text x="970" y="30" font-size="14" fill="#98a1ad">☐</text>
+  <text x="998" y="30" font-size="14" fill="#98a1ad">✕</text>
+
+  <!-- sidebar -->
+  <rect x="0" y="49" width="240" height="719" fill="#181a1e"/>
+  <line x1="240.5" y1="49" x2="240.5" y2="768" stroke="#343942"/>
+  <rect x="12" y="62" width="216" height="26" rx="3" fill="#1f2227" stroke="#343942"/>
+  <text x="22" y="80" fill="#98a1ad" font-size="13">Search / Connect</text>
+  <text x="12" y="116" font-size="12" font-weight="700" fill="#98a1ad" letter-spacing="0.3">SERVERS</text>
+  <rect x="8" y="126" width="224" height="26" rx="3" fill="#2a3f57"/>
+  <rect x="8" y="126" width="2" height="26" fill="#4a94dc"/>
+  <circle cx="24" cy="139" r="4" fill="#3fbf6a"/>
+  <text x="38" y="144" font-size="13" fill="#e3e6ea">renner.dev</text>
+  <text x="212" y="144" font-size="13" fill="#98a1ad">✕</text>
+  <text x="12" y="188" font-size="12" font-weight="700" fill="#98a1ad" letter-spacing="0.3">BOOKMARKS</text>
+  <text x="24" y="214" font-size="13" fill="#e3e6ea">renner.dev</text>
+  <text x="12" y="256" font-size="12" font-weight="700" fill="#98a1ad" letter-spacing="0.3">CONTACTS</text>
+  <text x="24" y="282" font-size="13" fill="#4a94dc">Add contact</text>
+  <text x="24" y="304" font-size="13" fill="#98a1ad">No contacts</text>
+  <text x="12" y="346" font-size="12" font-weight="700" fill="#98a1ad" letter-spacing="0.3">GROUP CHATS</text>
+  <text x="24" y="372" font-size="13" fill="#4a94dc">Join group chat</text>
+  <text x="24" y="394" font-size="13" fill="#98a1ad">No chats</text>
+  <line x1="0" y1="727.5" x2="240" y2="727.5" stroke="#343942"/>
+  <circle cx="24" cy="748" r="8" fill="#262a30" stroke="#343942"/>
+  <circle cx="30" cy="754" r="3.5" fill="#3fbf6a" stroke="#181a1e"/>
+  <text x="42" y="753" font-size="13" fill="#e3e6ea">Rennerdo30</text>
+  <text x="212" y="753" font-size="13" fill="#98a1ad">⚙</text>
+
+  <!-- tree column -->
+  <rect x="241" y="49" width="380" height="719" fill="#1f2227"/>
+  <line x1="621.5" y1="49" x2="621.5" y2="768" stroke="#343942"/>
+  <rect x="249" y="58" width="364" height="36" rx="3" fill="#181a1e" stroke="#343942"/>
+  <path d="M263 66 l9 5 v10 l-9 5 l-9 -5 v-10 z" fill="#4a94dc"/>
+  <text x="282" y="81" font-size="13" font-weight="600" fill="#e3e6ea">renner.dev</text>
+  <text x="572" y="81" font-size="13" fill="#98a1ad">☆   ✎</text>
+
+  <g font-size="13" fill="#e3e6ea">
+    <path d="M265 111 l7 4 v7 l-7 4 l-7 -4 v-7 z" fill="#4a94dc" opacity="0.85"/>
+    <text x="284" y="122">Default Channel</text>
+
+    <rect x="249" y="134" width="364" height="24" rx="3" fill="#272c34"/>
+    <text x="256" y="151" fill="#98a1ad">⌄</text>
+    <path d="M275 135 l7 4 v7 l-7 4 l-7 -4 v-7 z" fill="#4a94dc" opacity="0.85"/>
+    <text x="294" y="151" font-weight="600">Renners Reich</text>
+    <circle cx="296" cy="170" r="6" fill="#6b7a90" stroke="#4a94dc" stroke-width="1"/>
+    <text x="310" y="175">renner1</text>
+    <rect x="586" y="163" width="14" height="14" rx="2" fill="#262a30" stroke="#343942"/>
+
+    <path d="M265 187 l7 4 v7 l-7 4 l-7 -4 v-7 z" fill="#4a94dc" opacity="0.85"/>
+    <text x="284" y="198">korixn</text>
+
+    <rect x="249" y="206" width="364" height="24" rx="3" fill="#2a3f57"/>
+    <rect x="249" y="206" width="2" height="24" fill="#4a94dc"/>
+    <text x="256" y="223" fill="#98a1ad">⌄</text>
+    <path d="M275 207 l7 4 v7 l-7 4 l-7 -4 v-7 z" fill="#4a94dc" opacity="0.85"/>
+    <text x="294" y="223" font-weight="600">etix</text>
+    <circle cx="296" cy="242" r="6" fill="#5fb3f2" stroke="#4a94dc" stroke-width="1"/>
+    <text x="310" y="247" font-weight="600">renner</text>
+    <rect x="586" y="235" width="14" height="14" rx="2" fill="#262a30" stroke="#343942"/>
+    <circle cx="296" cy="266" r="6" fill="#6b7a90" stroke="#4a94dc" stroke-width="1"/>
+    <text x="310" y="271">Tipange</text>
+    <circle cx="296" cy="290" r="6" fill="#6b7a90" stroke="#4a94dc" stroke-width="1"/>
+    <text x="310" y="295">Wildleder</text>
+
+    <path d="M265 303 l7 4 v7 l-7 4 l-7 -4 v-7 z" fill="#4a94dc" opacity="0.85"/>
+    <text x="284" y="314">bodi kekw</text>
+    <path d="M265 327 l7 4 v7 l-7 4 l-7 -4 v-7 z" fill="#e6a04a" opacity="0.9"/>
+    <text x="284" y="338">Chris cornona club</text>
+    <text x="596" y="338" fill="#98a1ad">🔒</text>
+    <path d="M265 351 l7 4 v7 l-7 4 l-7 -4 v-7 z" fill="#4a94dc" opacity="0.85"/>
+    <text x="284" y="362">Timons Taverne</text>
+    <path d="M265 375 l7 4 v7 l-7 4 l-7 -4 v-7 z" fill="#4a94dc" opacity="0.85"/>
+    <text x="284" y="386">Homeoffice</text>
+    <path d="M265 399 l7 4 v7 l-7 4 l-7 -4 v-7 z" fill="#4a94dc" opacity="0.85"/>
+    <text x="284" y="410">AFK</text>
+  </g>
+  <line x1="241" y1="727.5" x2="621" y2="727.5" stroke="#343942"/>
+  <rect x="249" y="736" width="118" height="24" rx="3" fill="#4a94dc"/>
+  <text x="264" y="753" font-size="12" font-weight="600" fill="#ffffff">+  Create channel</text>
+
+  <!-- content pane -->
+  <rect x="622" y="49" width="402" height="719" fill="#1f2227"/>
+  <path d="M645 66 l10 6 v12 l-10 6 l-10 -6 v-12 z" fill="#4a94dc"/>
+  <text x="666" y="86" font-size="20" font-weight="600" fill="#e3e6ea">renner.dev</text>
+  <text x="958" y="84" font-size="13" fill="#98a1ad">✎  ⓘ  ▤</text>
+  <line x1="622" y1="104.5" x2="1024" y2="104.5" stroke="#343942"/>
+
+  <rect x="638" y="120" width="370" height="40" rx="4" fill="#181a1e" stroke="#343942"/>
+  <text x="652" y="145" font-size="13" fill="#e3e6ea">Welcome to TeamSpeak, check <tspan fill="#4a94dc">www.teamspeak.com</tspan></text>
+
+  <rect x="638" y="176" width="180" height="150" rx="4" fill="#1f2227" stroke="#343942"/>
+  <text x="652" y="198" font-size="13" font-weight="700" fill="#e3e6ea">Server</text>
+  <g font-size="13">
+    <text x="652" y="224" fill="#98a1ad">Address</text><text x="730" y="224" fill="#e3e6ea">renner.dev</text>
+    <text x="652" y="246" fill="#98a1ad">Version</text><text x="730" y="246" fill="#e3e6ea">3.13.7 · Linux</text>
+    <text x="652" y="268" fill="#98a1ad">Uptime</text><text x="730" y="268" fill="#e3e6ea">7 months</text>
+    <text x="652" y="290" fill="#98a1ad">Clients</text><text x="730" y="290" fill="#e3e6ea">4 / 32</text>
+    <text x="652" y="312" fill="#98a1ad">Channels</text><text x="730" y="312" fill="#e3e6ea">9</text>
+  </g>
+
+  <rect x="828" y="176" width="180" height="150" rx="4" fill="#1f2227" stroke="#343942"/>
+  <text x="842" y="198" font-size="13" font-weight="700" fill="#e3e6ea">Manage</text>
+  <g font-size="13" fill="#4a94dc">
+    <text x="842" y="224">Permissions</text>
+    <text x="842" y="246">Banned users</text>
+    <text x="842" y="268">Privilege keys</text>
+    <text x="842" y="290">Temporary passwords</text>
+    <text x="842" y="312">Client list</text>
+  </g>
+
+  <!-- chat log -->
+  <rect x="638" y="342" width="370" height="330" rx="4" fill="#1f2227" stroke="#343942"/>
+  <text x="652" y="364" font-size="13" font-weight="700" fill="#e3e6ea">Chat</text>
+  <line x1="639" y1="374.5" x2="1007" y2="374.5" stroke="#343942"/>
+  <g font-size="12">
+    <text x="652" y="396" fill="#98a1ad">17:37:49</text><text x="716" y="396" fill="#e3e6ea"><tspan font-weight="600">renner</tspan>  <tspan fill="#4a94dc">https://store.steampowered.com/app/…</tspan></text>
+    <text x="652" y="418" fill="#98a1ad">17:37:56</text><text x="716" y="418" fill="#98a1ad">You are now talking in <tspan font-weight="600" fill="#e3e6ea">etix</tspan></text>
+    <text x="652" y="440" fill="#98a1ad">18:25:01</text><text x="716" y="440" fill="#e3e6ea"><tspan font-weight="600">renner</tspan>  <tspan fill="#4a94dc">https://w2g.renner.dev/room/04lq9o</tspan></text>
+    <text x="652" y="462" fill="#98a1ad">18:25:27</text><text x="716" y="462" fill="#e3e6ea"><tspan font-weight="600">Tipange</tspan>  sounds good, joining</text>
+  </g>
+  <rect x="652" y="634" width="342" height="26" rx="3" fill="#1f2227" stroke="#343942"/>
+  <text x="662" y="652" font-size="13" fill="#98a1ad">Enter chat message…</text>
+
+  <!-- status bar -->
+  <line x1="622" y1="727.5" x2="1024" y2="727.5" stroke="#343942"/>
+  <text x="638" y="753" font-size="12" fill="#98a1ad">Connected as renner (279 ms ± 0.5)</text>
+  <text x="962" y="753" font-size="12" fill="#e3e6ea">Dark</text>
+</svg>

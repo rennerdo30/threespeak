@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Threespeak — stacked layout ("chat below")
+   Appended to the standard structure for the "chat below" variants. Puts the
+   channel tree on top and the detail pane (chat or channel info) beneath it,
+   spanning the full width, the way TeamSpeak 3 kept its chat log at the
+   bottom. The client renders only one detail pane at a time, so info and
+   chat share that bottom area.
+   ========================================================================== */
+:root, ::after, ::before {
+    --ts3-stacked-tree-height: 55%;      /* initial share of the column for the tree */
+    --ts3-stacked-tree-min-height: 120px;
+    --ts3-stacked-tree-max-height: 85%;
+    --ts3-stacked-header-height: 36px;   /* compact detail header                   */
+}
+
+/* `contain` and `transform` on these ancestors would trap the pinned window
+   buttons inside the detail pane, so containment is released here. */
+html .tsv-activity {
+    flex-direction: column !important;
+    contain: none !important;
+}
+/* The tree pane is user-resizable through the browser's native grip in its
+   bottom-right corner (CSS `resize`). `height` is deliberately not !important
+   so the inline height written by the resizer wins; the size resets on
+   restart because a theme cannot store state. */
+html .tsv-activity-main {
+    flex: 0 0 auto !important;
+    height: var(--ts3-stacked-tree-height);
+    min-height: var(--ts3-stacked-tree-min-height) !important;
+    max-height: var(--ts3-stacked-tree-max-height) !important;
+    width: 100% !important;
+    max-width: none !important;
+    border-left: none !important;
+    border-bottom: 1px solid var(--tsv-separation-border-color) !important;
+    resize: vertical !important;
+    overflow: hidden !important;
+    contain: none !important;
+}
+html .tsv-activity-main:hover {
+    border-bottom-color: var(--tsv-tint) !important;
+}
+/* The native grip, drawn in the accent colour so it can be found */
+html .tsv-activity-main::-webkit-resizer {
+    background: linear-gradient(135deg, transparent 0 45%, var(--tsv-tint) 45% 55%, transparent 55% 65%, var(--tsv-tint) 65% 75%, transparent 75%) !important;
+}
+html .tsv-activity-detail {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    border-left: none !important;
+    contain: none !important;
+}
+
+/* Detail header: one compact row. The client's own window bar collapses; its
+   min/max/close buttons are pinned to the window's top-right corner instead. */
+html .tsv-activity-detail > .tsv-header {
+    flex: 0 0 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+}
+html .tsv-activity-detail > .tsv-header > .tsv-window-bar {
+    flex: 0 0 0px !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    transform: none !important;
+}
+html .tsv-activity-detail > .tsv-header > .tsv-window-bar > .tsv-bar-item:not(:last-child),
+html .tsv-activity-detail > .tsv-header > .tsv-window-bar > .tsv-flex-grow {
+    display: none !important;
+}
+html .tsv-activity-detail > .tsv-header > .tsv-window-bar > .tsv-bar-item.tsv-no-padding:last-child {
+    position: fixed !important;
+    top: 0 !important;
+    right: var(--tsv-padding-h-small) !important;
+    height: var(--tsv-header-window-bar-height) !important;
+    z-index: 100000 !important;
+}
+html .tsv-activity-detail > .tsv-header > .tsv-content-header-bar {
+    flex: 0 0 var(--ts3-stacked-header-height) !important;
+    min-height: var(--ts3-stacked-header-height) !important;
+    height: var(--ts3-stacked-header-height) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    --tsv-font-size-title: var(--tsv-font-size-large);
+    --tsv-line-height-title: var(--tsv-line-height-large);
+    --tsv-font-size-title-small: var(--tsv-font-size-large);
+    --tsv-icon-size-xlarge: 20px;
+    --tsv-icon-size-xxlarge: 20px;
+    --tsv-icon-size-large: 20px;
+    --tsv-row-height-large: var(--ts3-stacked-header-height);
+}
+html .tsv-activity-detail > .tsv-header > .tsv-content-header-bar ul,
+html .tsv-activity-detail > .tsv-header > .tsv-content-header-bar li {
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
